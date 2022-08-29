@@ -1,30 +1,22 @@
-#Importa a lib
 import mysql.connector
-from decouple import config
+from Parameters.QuestionsParameters import *
 
-#Cria o objeto e passa os parametros: host, user, password e database
-con = mysql.connector.connect(host=config("localhost"), user='root', password=config("password"), database=config("database"))
 
-#Cria a condição 
-if con.is_connected():
-    #Mostrara a versão do mysql
-    db_info = con.get_server_info()
-    print("Conectado ao servidor mysql versão: ", db_info)
-    #Cria um cursor para dar comandos ao db, executa comandos usando o cursor e exibe-os
-    cursor = con.cursor()
-    #Executa os comandos passados ao cursor
-    cursor.execute("select database();")
-    linha = cursor.fetchone()
-    #Exibe os comandos
-    print("Conectado ao banco de dados ",linha)
-#Cria a condição para encerrar a conexão     
-if con.is_connected(): 
-    
-    #Encerra o cursor
-    cursor.close()
-    
-    #Encerra a conexão
-    con.close()
+mydb = mysql.connector.connect(host="127.0.0.1", user='root', password="E=m.c20608", database="escola")
+
+mycursor = mydb.cursor()
+sql = "INSERT INTO aluno(nome, idade, sexo) VALUE (%s, %s, %s)"
+val = [
+(name, idade, sexo)
+]
+mycursor.executemany(sql, val)
+mydb.commit()
+print(mycursor.rowcount, "Registros inseridos")
+
+if mydb.is_connected(): 
+    mycursor.close()
+    mydb.close()
     print("Conexao ao MySql foi encerrada")
-    
-    
+
+
+
