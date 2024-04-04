@@ -1,6 +1,6 @@
 import mysql.connector
 from decouple import config
-from Parameters.QuestionsParameters import *
+from Components.QuestionsParameters import *
 #from Parameters.QuestionsParameters import *
 
 Tabela = config("Tabela")

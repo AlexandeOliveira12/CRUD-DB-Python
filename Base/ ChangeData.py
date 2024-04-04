@@ -1,6 +1,6 @@
 import mysql.connector
 from decouple import config
-from Parameters.Dados import *
+from Components.Data import *
 
 mydb = mysql.connector.connect(
     host=config("Host"),
@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 sql = "UPDATE Usuarios SET Email = %s WHERE Usuario = %s;"
-values = (Email_Cliente, Usuario_Cliente)
+values = (Usuario_Cliente)
 
 mycursor.execute(sql, values)
 mydb.commit()

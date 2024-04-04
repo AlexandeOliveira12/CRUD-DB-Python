@@ -22,7 +22,7 @@ finally:
     
 
 
-Nome = input("insira seu Nome de Usuario: ")
+Nome = input("\nInsira seu Nome de Usuario: ")
 Email = input("Digite se Email: ")
 Senha = input("Insira uma Senha: ")
 
