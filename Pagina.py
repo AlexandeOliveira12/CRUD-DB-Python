@@ -7,7 +7,7 @@ Alt = int(input('''1. Cadastrar-se
                 \n3. Alterar Email:'''))
 
 if Alt == 1:
-    from Components.QuestionsParameters import *
+    from Components.Register import *
     
     Tabela = config("Tabela")
 
@@ -25,7 +25,7 @@ if Alt == 1:
         mydb.close()
         print("Conexão ao MySQL foi encerrada")
 elif Alt == 2:
-    from Components.Data import *
+    from Components.ChangePassword import *
     
     Tabela = config("Tabela")
 
@@ -37,19 +37,19 @@ elif Alt == 2:
     mycursor.execute(sql, val)
     mydb.commit()
 elif Alt == 3:
-    from Components.Data import *
+    from Components.ChangeEmail import *
     
     Tabela = config("Tabela")
 
     mydb = mysql.connector.connect(host=config("Host"), user=config("User"), password=config("Password"), database=config("Database"))
 
     mycursor = mydb.cursor()    
-    sql = "UPDATE Usuarios SET Email = %s WHERE Usuario = %s;"
+    sql = "UPDATE Usuarios SET Email = %s WHERE Usuario = %s AND Senha = %s;"
     val = (Senha_Update_Hash,Senha_Antiga) 
     mycursor.execute(sql, val)
     mydb.commit()
 else:
-    print("Algo deu errado")
+    print("Algo deu errado", error)
     print(Alt)
 
 

@@ -24,10 +24,10 @@ def verificar_nome_usuario(nome_usuario):
         # Verificar se o nome de usuário já existe
         if resultado[0] > 0:
             #print("O nome de usuário '{}' já está em uso.".format(nome_usuario))
-            print(False)
+            print(True)
         else:
             #print("O nome de usuário '{}' está disponível.".format(nome_usuario))
-            print(True)
+            print(False)
 
     except mysql.connector.Error as erro:
         print("Erro ao conectar ao banco de dados MySQL:", erro)
