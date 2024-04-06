@@ -2,9 +2,7 @@ import mysql.connector
 from decouple import config
 
 
-Alt = int(input('''1. Cadastrar-se 
-                \n2. Trocar Senha
-                \n3. Alterar Email:'''))
+Alt = int(input("1. Cadastrar-se  --  2. Trocar Senha  --  3. Alterar Email:"))
 
 if Alt == 1:
     from Components.Register import *
@@ -15,7 +13,7 @@ if Alt == 1:
 
     mycursor = mydb.cursor()    
     sql = f"INSERT INTO Usuarios(Usuario, Email, Senha, Endereco_IP) VALUE (%s, %s, %s, %s) "
-    val = (Nome, Email, Senha_Hash, Endereco_IP ) 
+    val = (Nome, Email, Senha_Hash, Endereco_IP) 
     mycursor.execute(sql, val)
     mydb.commit()
     #print(mycursor.rowcount, "Registros inseridos")
@@ -45,7 +43,7 @@ elif Alt == 3:
 
     mycursor = mydb.cursor()    
     sql = "UPDATE Usuarios SET Email = %s WHERE Usuario = %s AND Senha = %s;"
-    val = (Senha_Update_Hash,Senha_Antiga) 
+    val = (EmailAtualizado,Usuario_Email, Senha_Hash_Formatada) 
     mycursor.execute(sql, val)
     mydb.commit()
 else:

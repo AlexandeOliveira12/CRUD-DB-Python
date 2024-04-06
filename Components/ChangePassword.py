@@ -33,9 +33,8 @@ try:
     # Obter o resultado da consulta
     resultado = mycursor.fetchone()
 
-    if resultado:  # Se o usuário existe
+    if resultado:
         senha_hash = resultado[0]  # Senha hash armazenada no banco de dados
-        # Aqui você deve usar um algoritmo de hash seguro, como bcrypt
         # para verificar a senha
         if Senha_Antiga_Hash == senha_hash:
             print("\nSenha Atualizada")
