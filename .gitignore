@@ -1,7 +1,8 @@
 .env
 SQL/
 Test/
-
+.SQL
+.sql
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

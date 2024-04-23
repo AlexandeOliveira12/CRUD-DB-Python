@@ -1,4 +1,4 @@
 mysql_connector_repackaged==0.3.1
 notify2==0.3.1
 python-decouple==3.8
-hashlib==15.1.1
+
