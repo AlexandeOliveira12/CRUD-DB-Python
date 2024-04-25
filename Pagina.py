@@ -11,8 +11,8 @@ if Alt == 1:
     mydb = mysql.connector.connect(host=config("Host"), user=config("User"), password=config("Password"), database=config("Database"))
 
     mycursor = mydb.cursor()    
-    sql = f"INSERT INTO credenciais_usuarios(Usuario, Email, Senha, Endereco_IP) VALUE (%s, %s, %s, %s) "
-    val = (Nome, Email, Senha_Hash, Endereco_IP) 
+    sql = f"INSERT INTO credenciais_usuarios(Usuario, Email, Senha, Endereco_IP, Idioma) VALUE (%s, %s, %s, %s, %s) "
+    val = (Nome, Email, Senha_Hash, Endereco_IP, idioma) 
     mycursor.execute(sql, val)
     mydb.commit()
 

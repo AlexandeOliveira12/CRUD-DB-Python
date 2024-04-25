@@ -1,5 +1,6 @@
 import socket
 from hashlib import sha256
+import locale
 
 
 #Pegar IP
@@ -19,13 +20,21 @@ except socket.error as e:
 finally:
     # Fecha o socket
     s.close()
-    
 
-
+#Pega o Nome
 Nome = input("\nInsira seu Nome de Usuario: ")
+
+#Pega o Email
 Email = input("Digite se Email: ")
+
+#Pega a Senha
 Senha = input("Insira uma Senha: ")
 
+#Pega o Idioma do S.O
+idioma, _ = locale.getdefaultlocale()
+print(idioma)
+
+#Transforma a senha em Hash
 sha256_hash = sha256()
 
 sha256_hash.update(Senha.encode('utf-8'))
