@@ -1,8 +1,7 @@
 import mysql.connector
 from decouple import config
 
-
-Alt = int(input("1. Cadastrar-se  --  2. Trocar Senha  --  3. Alterar Email:"))
+Alt = int(input("1. Cadastrar-se  --  2. Trocar Senha  --  3. Alterar Email:  "))
 
 if Alt == 1:
     from Components.Register import *
@@ -16,7 +15,6 @@ if Alt == 1:
     val = (Nome, Email, Senha_Hash, Endereco_IP) 
     mycursor.execute(sql, val)
     mydb.commit()
-    #print(mycursor.rowcount, "Registros inseridos")
 
     if mydb.is_connected(): 
         mycursor.close()

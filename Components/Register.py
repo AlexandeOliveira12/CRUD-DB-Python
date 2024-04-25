@@ -32,7 +32,6 @@ sha256_hash.update(Senha.encode('utf-8'))
 
 Senha_Hash = sha256_hash.hexdigest()
 
-
 Endereco_IP = ip_address
     
 
