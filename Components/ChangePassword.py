@@ -25,7 +25,8 @@ try:
     mycursor = mydb.cursor()
 
     # Consulta SQL para obter a senha do usuário
-    sql = "SELECT Senha FROM Usuarios WHERE Usuario = %s;"
+    sql = "SELECT Senha FROM credenciais_usuarios WHERE Usuario = %s;"
+
 
     # Executar a consulta
     mycursor.execute(sql, (Usuario_Cliente,))
